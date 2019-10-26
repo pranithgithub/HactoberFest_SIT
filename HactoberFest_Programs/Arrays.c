@@ -17,6 +17,5 @@ int main(){
     printf("\n");
    }
    printf("%d",numArr[9]);
-
    return 0;
 }
