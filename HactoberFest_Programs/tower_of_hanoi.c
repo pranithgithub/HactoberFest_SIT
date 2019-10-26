@@ -1,20 +1,18 @@
-#include<stdio.h>
-
-void move(int n,char src,char dest,char spare){
-	if(n==1){
-		printf("\nMove disk from %c to %c.",src,dest);
-	}
-	else{
-		move(n-1,src,spare,dest);
-		move(1,src,dest,spare);
-		move(n-1,spare,dest,src);
-	}
-}
-
-int main(){
-	int num;
-	printf("\nEnter the number of disks : ");
-	scanf("%d",&num);
-	move(num,'A','C','B');
-	return 0;
-}
+void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod) 
+{ 
+    if (n == 1) 
+    { 
+        printf("\n Move disk 1 from rod %c to rod %c", from_rod, to_rod); 
+        return; 
+    } 
+    towerOfHanoi(n-1, from_rod, aux_rod, to_rod); 
+    printf("\n Move disk %d from rod %c to rod %c", n, from_rod, to_rod); 
+    towerOfHanoi(n-1, aux_rod, to_rod, from_rod); 
+} 
+  
+int main() 
+{ 
+    int n = 4;
+    towerOfHanoi(n, 'A', 'C', 'B'); 
+    return 0; 
+} 
